@@ -21,7 +21,7 @@ class App extends React.Component {
     this.setState([contacts.push(contact)]);
   };
   render() {
-    const {contacts,name } = this.state;
+    const {contacts,name,number } = this.state;
     return (
       <>
         <h1>PhoneBook</h1>
@@ -44,6 +44,7 @@ class App extends React.Component {
              onChange={this.addFormNameTel}
               type="tel"
               name="number"
+              value={number}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
