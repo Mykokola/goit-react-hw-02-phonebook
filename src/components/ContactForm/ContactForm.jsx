@@ -1,5 +1,4 @@
 import React from "react"
-
 import { FormTitle,FormContact,FormButton} from "./ContactForm.Styled"
 export class ContactForm extends React.Component {
   // ({number,name,addContacts,addFormNameTel}) =>

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {FilterLabel,FilterTitle} from './ContactListFilter.Styled'
 export const ContactListFilter = ({setFilter,filter}) => {
     return (
@@ -14,4 +16,8 @@ export const ContactListFilter = ({setFilter,filter}) => {
         </FilterLabel>
         </>
     )
+}
+ContactListFilter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired
 }

@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import{ContactListBtn,ContactListUl} from './ContactList.Styled'
 export const ContactList = ({contacts,deleteContact}) => {
     return (
@@ -15,4 +16,8 @@ export const ContactList = ({contacts,deleteContact}) => {
         </ContactListUl>
         </>
     )
+}
+ContactList.propTypes = {
+  contacts: PropTypes.object.isRequired,
+  deleteContact: PropTypes.func.isRequired
 }
