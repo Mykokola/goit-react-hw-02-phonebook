@@ -1,13 +1,35 @@
+import React from "react"
+
 import { FormTitle,FormContact,FormButton} from "./ContactForm.Styled"
-export const ContactForm = ({number,name,addContacts,addFormNameTel}) => {
-    return ( 
+export class ContactForm extends React.Component {
+  // ({number,name,addContacts,addFormNameTel}) =>
+  state = {
+    name: '',
+    number: '',
+  }
+
+  addFormNameTel = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitForm = e => {
+    e.preventDefault()
+    this.props.onSubmit({ name: this.state.name, number: this.state.number });
+    this.reset();
+  }
+  reset = () => {
+    this.setState({ number: '', name: '' });
+  };
+  render(){ 
+    const {name,number} = this.state
+  return ( 
         <>
-         <FormTitle>PhoneBook</FormTitle>
-        <FormContact onSubmit={addContacts}>
+        <FormTitle>Phone Book</FormTitle>
+        <FormContact onSubmit={this.submitForm} >
           <label>
             Name
             <input
-              onChange={addFormNameTel}
+              onChange={this.addFormNameTel}
               type="text"
               name="name"
               value={name}
@@ -19,7 +41,7 @@ export const ContactForm = ({number,name,addContacts,addFormNameTel}) => {
           <label>
           Tel:
             <input
-              onChange={addFormNameTel}
+              onChange={this.addFormNameTel}
               type="tel"
               name="number"
               value={number}
@@ -32,4 +54,4 @@ export const ContactForm = ({number,name,addContacts,addFormNameTel}) => {
         </FormContact>
         </>
     )
-}
+}}
